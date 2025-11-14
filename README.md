@@ -120,9 +120,9 @@ O dataset contém respostas de profissionais de tecnologia sobre:
 ## 🎓 Equipe
 
 **Disciplina:** Cloud Solutions  
-**Turma:** 2TSC  
+**Turma:** 2TSCPF  
 **Instituição:** FIAP  
-**Projeto:** Global Solution 2024
+**Projeto:** Global Solution 2025
 
 **Integrantes:**
 - RM557806 - Antônio Carlos Cardoso
