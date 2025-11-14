@@ -1,56 +1,298 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Global Karlos - Visualização de Dados</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                max-width: 800px;
-                margin: 50px auto;
-                padding: 20px;
-                background-color: #f5f5f5;
-            }
-            h1 {
-                color: #2c3e50;
-                text-align: center;
-            }
-            h2 {
-                color: #34495e;
-                text-align: center;
-            }
-            form {
-                background: white;
-                padding: 30px;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                text-align: center;
-            }
-            input[type="file"] {
-                margin: 20px 0;
-                padding: 10px;
-            }
-            input[type="submit"] {
-                background-color: #3498db;
-                color: white;
-                padding: 10px 30px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 16px;
-            }
-            input[type="submit"]:hover {
-                background-color: #2980b9;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Global Karlos</h1>
-        <h2>Análise de Dados com IA - Saúde Mental</h2>
-        <form action="/display" method="post" enctype="multipart/form-data">
-            <p>Selecione o arquivo CSV para visualização:</p>
-            <input type="file" name="file" accept=".csv" required>
-            <br>
-            <input type="submit" value="Carregar Dados">
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA e Saúde Mental no Setor Tech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .navbar {
+            background: rgba(255,255,255,0.98) !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand {
+            color: #667eea !important;
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+        .main-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        .stats-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        .stats-card h3 {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .stats-card p {
+            margin: 0;
+            opacity: 0.95;
+            font-size: 0.95rem;
+        }
+        .stats-card small {
+            opacity: 0.8;
+            font-size: 0.85rem;
+        }
+        .stats-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .table {
+            font-size: 0.85rem;
+        }
+        .table thead th {
+            background-color: #667eea;
+            color: white;
+            border: none;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .table tbody tr:hover {
+            background-color: #f8f9ff;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            font-weight: 600;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 20px;
+        }
+        .alert-info {
+            background: linear-gradient(135deg, #e0e7ff 0%, #f3e7ff 100%);
+            border: none;
+            border-left: 4px solid #667eea;
+            border-radius: 10px;
+        }
+        footer {
+            background: rgba(255,255,255,0.98);
+            margin-top: 30px;
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
+        }
+        .badge-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        .insight-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">
+                <i class="fas fa-brain"></i> IA Preditiva - Saúde Mental no Setor Tech
+            </span>
+            <span class="badge badge-custom">FIAP Global Solution</span>
+        </div>
+    </nav>
+
+    <div class="container main-container">
+        
+        <!-- Resumo Executivo -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <h4><i class="fas fa-info-circle"></i> Sobre a Pesquisa</h4>
+                    <p><strong>Dataset:</strong> Mental Health in Tech Survey (Kaggle - OSMI)</p>
+                    <p><strong>Tema GS:</strong> IA Preditiva para Identificação de Riscos de Saúde Mental no Ambiente Corporativo</p>
+                    <p><strong>Objetivo:</strong> Analisar padrões de saúde mental em profissionais de tecnologia para desenvolver 
+                    modelos preditivos que identifiquem colaboradores em risco e recomendem intervenções preventivas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards de Estatísticas -->
+        <div class="row mb-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="stats-card">
+                    <div class="stats-icon"><i class="fas fa-users"></i></div>
+                    <h3>{{ stats.total }}</h3>
+                    <p>Respostas Coletadas</p>
+                    <small>{{ stats.paises_unicos }} países</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stats-card">
+                    <div class="stats-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>{{ percentuais.perc_tratamento }}%</h3>
+                    <p>Buscaram Tratamento</p>
+                    <small>{{ stats.buscou_tratamento }} pessoas</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stats-card">
+                    <div class="stats-icon"><i class="fas fa-dna"></i></div>
+                    <h3>{{ percentuais.perc_historico }}%</h3>
+                    <p>Histórico Familiar</p>
+                    <small>{{ stats.historico_familiar }} casos</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stats-card">
+                    <div class="stats-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>{{ percentuais.perc_interferencia }}%</h3>
+                    <p>Trabalho Afetado</p>
+                    <small>{{ stats.trabalho_interferido }} profissionais</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estatísticas Adicionais -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="insight-box">
+                    <h6><i class="fas fa-building"></i> Empresas Tech</h6>
+                    <h4>{{ stats.empresa_tech }}</h4>
+                    <small class="text-muted">trabalham em empresas de tecnologia</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="insight-box">
+                    <h6><i class="fas fa-heart"></i> Benefícios de Saúde</h6>
+                    <h4>{{ percentuais.perc_beneficios }}%</h4>
+                    <small class="text-muted">têm acesso a benefícios</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="insight-box">
+                    <h6><i class="fas fa-home"></i> Trabalho Remoto</h6>
+                    <h4>{{ stats.trabalho_remoto }}</h4>
+                    <small class="text-muted">trabalham remotamente</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabela de Dados -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-table"></i> Dados da Pesquisa (Primeiras 50 respostas)</h5>
+                    </div>
+                    <div class="card-body table-responsive" style="max-height: 600px; overflow-y: auto;">
+                        {{ table|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Insights de IA -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-robot"></i> Aplicações de IA Preditiva</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6><i class="fas fa-chart-line"></i> Modelos de Machine Learning</h6>
+                                <ul>
+                                    <li><strong>Classificação de Risco:</strong> Random Forest para prever probabilidade de burnout</li>
+                                    <li><strong>Clustering:</strong> Identificar grupos de risco por perfil comportamental</li>
+                                    <li><strong>Análise de Sentimento:</strong> NLP nos comentários para detectar sinais de alerta</li>
+                                    <li><strong>Séries Temporais:</strong> Prever tendências de afastamentos</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6><i class="fas fa-lightbulb"></i> Insights para RH</h6>
+                                <ul>
+                                    <li><strong>Intervenção Precoce:</strong> Identificar colaboradores em risco antes do afastamento</li>
+                                    <li><strong>Programas Direcionados:</strong> Criar ações de wellness baseadas em dados</li>
+                                    <li><strong>Cultura Organizacional:</strong> Medir impacto de políticas de saúde mental</li>
+                                    <li><strong>Retenção de Talentos:</strong> Reduzir turnover por questões de saúde mental</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variáveis Analisadas -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-database"></i> Variáveis do Dataset</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Total de variáveis analisadas:</strong> {{ colunas|length }}</p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h6>Demográficas:</h6>
+                                <span class="badge bg-secondary">Age</span>
+                                <span class="badge bg-secondary">Gender</span>
+                                <span class="badge bg-secondary">Country</span>
+                            </div>
+                            <div class="col-md-4">
+                                <h6>Trabalho:</h6>
+                                <span class="badge bg-info">tech_company</span>
+                                <span class="badge bg-info">remote_work</span>
+                                <span class="badge bg-info">no_employees</span>
+                            </div>
+                            <div class="col-md-4">
+                                <h6>Saúde Mental:</h6>
+                                <span class="badge bg-danger">treatment</span>
+                                <span class="badge bg-danger">work_interfere</span>
+                                <span class="badge bg-danger">family_history</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="py-4 text-center">
+        <div class="container">
+            <p class="text-muted mb-1"><strong>Global Solution - Cloud Solutions</strong></p>
+            <p class="text-muted mb-0">FIAP 2TSC | Azure WebApp + Python | GitHub Actions CI/CD</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
