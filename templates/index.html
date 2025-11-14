@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA e Saúde Mental no Setor Tech</title>
+    <title>IA e Saúde Mental - Setor Tech</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .navbar {
             background: rgba(255,255,255,0.98) !important;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
         }
         .navbar-brand {
             color: #667eea !important;
             font-weight: bold;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
         }
         .main-container {
             background: white;
             border-radius: 20px;
             padding: 40px;
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin: 30px auto;
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            max-width: 1400px;
         }
         .stats-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -37,45 +36,26 @@
             border-radius: 15px;
             margin-bottom: 25px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s;
         }
         .stats-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
         .stats-card h3 {
-            font-size: 2.8rem;
-            margin-bottom: 8px;
+            font-size: 2.5rem;
             font-weight: bold;
-        }
-        .stats-card p {
-            margin: 0;
-            opacity: 0.95;
-            font-size: 0.95rem;
-        }
-        .stats-card small {
-            opacity: 0.8;
-            font-size: 0.85rem;
+            margin-bottom: 5px;
         }
         .stats-icon {
             font-size: 2rem;
             margin-bottom: 10px;
-            opacity: 0.9;
-        }
-        .table {
-            font-size: 0.85rem;
         }
         .table thead th {
             background-color: #667eea;
             color: white;
-            border: none;
-            font-weight: 600;
             position: sticky;
             top: 0;
             z-index: 10;
-        }
-        .table tbody tr:hover {
-            background-color: #f8f9ff;
         }
         .card {
             border: none;
@@ -86,70 +66,77 @@
         .card-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border: none;
-            font-weight: 600;
             border-radius: 15px 15px 0 0 !important;
             padding: 20px;
         }
         .alert-info {
-            background: linear-gradient(135deg, #e0e7ff 0%, #f3e7ff 100%);
-            border: none;
             border-left: 4px solid #667eea;
-            border-radius: 10px;
+            background: #e8f4f8;
         }
-        footer {
-            background: rgba(255,255,255,0.98);
-            margin-top: 30px;
-            box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
-        }
-        .badge-custom {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 8px 15px;
+        .upload-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px;
             border-radius: 20px;
-            font-weight: 500;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
-        .insight-box {
-            background: #f8f9ff;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            border-radius: 10px;
+        .upload-section h3 {
+            color: white;
+            font-weight: bold;
             margin-bottom: 20px;
+        }
+        .upload-section p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        .btn-upload {
+            background: white;
+            color: #f5576c;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        .btn-upload:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            color: #f5576c;
         }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-light">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">
+        <div class="container-fluid px-5">
+            <span class="navbar-brand">
                 <i class="fas fa-brain"></i> IA Preditiva - Saúde Mental no Setor Tech
             </span>
-            <span class="badge badge-custom">FIAP Global Solution</span>
+            <span class="badge bg-primary">FIAP Global Solution</span>
         </div>
     </nav>
 
     <div class="container main-container">
-        
-        <!-- Resumo Executivo -->
         <div class="row mb-4">
             <div class="col-12">
                 <div class="alert alert-info">
-                    <h4><i class="fas fa-info-circle"></i> Sobre a Pesquisa</h4>
+                    <h4><i class="fas fa-info-circle"></i> Sobre o Projeto</h4>
                     <p><strong>Dataset:</strong> Mental Health in Tech Survey (Kaggle - OSMI)</p>
-                    <p><strong>Tema GS:</strong> IA Preditiva para Identificação de Riscos de Saúde Mental no Ambiente Corporativo</p>
-                    <p><strong>Objetivo:</strong> Analisar padrões de saúde mental em profissionais de tecnologia para desenvolver 
-                    modelos preditivos que identifiquem colaboradores em risco e recomendem intervenções preventivas.</p>
+                    <p><strong>Tema GS:</strong> IA Preditiva para Identificação de Riscos de Saúde Mental Corporativa</p>
+                    <p><strong>Total:</strong> {{ stats.total }} respostas de {{ stats.paises_unicos }} países</p>
                 </div>
             </div>
         </div>
 
-        <!-- Cards de Estatísticas -->
         <div class="row mb-4">
             <div class="col-md-3 col-sm-6">
                 <div class="stats-card">
                     <div class="stats-icon"><i class="fas fa-users"></i></div>
                     <h3>{{ stats.total }}</h3>
                     <p>Respostas Coletadas</p>
-                    <small>{{ stats.paises_unicos }} países</small>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
@@ -178,37 +165,11 @@
             </div>
         </div>
 
-        <!-- Estatísticas Adicionais -->
-        <div class="row mb-4">
-            <div class="col-md-4">
-                <div class="insight-box">
-                    <h6><i class="fas fa-building"></i> Empresas Tech</h6>
-                    <h4>{{ stats.empresa_tech }}</h4>
-                    <small class="text-muted">trabalham em empresas de tecnologia</small>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="insight-box">
-                    <h6><i class="fas fa-heart"></i> Benefícios de Saúde</h6>
-                    <h4>{{ percentuais.perc_beneficios }}%</h4>
-                    <small class="text-muted">têm acesso a benefícios</small>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="insight-box">
-                    <h6><i class="fas fa-home"></i> Trabalho Remoto</h6>
-                    <h4>{{ stats.trabalho_remoto }}</h4>
-                    <small class="text-muted">trabalham remotamente</small>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tabela de Dados -->
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0"><i class="fas fa-table"></i> Dados da Pesquisa (Primeiras 50 respostas)</h5>
+                        <h5 class="mb-0"><i class="fas fa-table"></i> Dados da Pesquisa (50 primeiras respostas)</h5>
                     </div>
                     <div class="card-body table-responsive" style="max-height: 600px; overflow-y: auto;">
                         {{ table|safe }}
@@ -217,82 +178,56 @@
             </div>
         </div>
 
-        <!-- Insights de IA -->
         <div class="row mt-4">
-            <div class="col-12">
+            <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0"><i class="fas fa-robot"></i> Aplicações de IA Preditiva</h5>
+                        <h5 class="mb-0"><i class="fas fa-robot"></i> Aplicações de IA</h5>
                     </div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6><i class="fas fa-chart-line"></i> Modelos de Machine Learning</h6>
-                                <ul>
-                                    <li><strong>Classificação de Risco:</strong> Random Forest para prever probabilidade de burnout</li>
-                                    <li><strong>Clustering:</strong> Identificar grupos de risco por perfil comportamental</li>
-                                    <li><strong>Análise de Sentimento:</strong> NLP nos comentários para detectar sinais de alerta</li>
-                                    <li><strong>Séries Temporais:</strong> Prever tendências de afastamentos</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h6><i class="fas fa-lightbulb"></i> Insights para RH</h6>
-                                <ul>
-                                    <li><strong>Intervenção Precoce:</strong> Identificar colaboradores em risco antes do afastamento</li>
-                                    <li><strong>Programas Direcionados:</strong> Criar ações de wellness baseadas em dados</li>
-                                    <li><strong>Cultura Organizacional:</strong> Medir impacto de políticas de saúde mental</li>
-                                    <li><strong>Retenção de Talentos:</strong> Reduzir turnover por questões de saúde mental</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <ul>
+                            <li><strong>Machine Learning:</strong> Modelos preditivos para burnout</li>
+                            <li><strong>Clustering:</strong> Identificar grupos de risco</li>
+                            <li><strong>NLP:</strong> Análise de sentimento em comentários</li>
+                            <li><strong>Alertas Inteligentes:</strong> Sistema de early warning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-lightbulb"></i> Insights RH</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>Intervenção Precoce:</strong> Identificar riscos antes do afastamento</li>
+                            <li><strong>Wellness Programs:</strong> Ações baseadas em dados</li>
+                            <li><strong>Cultura Organizacional:</strong> Medir impacto de políticas</li>
+                            <li><strong>Retenção:</strong> Reduzir turnover por saúde mental</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Variáveis Analisadas -->
-        <div class="row mt-4">
+        <!-- SEÇÃO DE UPLOAD DE CSV -->
+        <div class="row mt-5">
             <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0"><i class="fas fa-database"></i> Variáveis do Dataset</h5>
-                    </div>
-                    <div class="card-body">
-                        <p><strong>Total de variáveis analisadas:</strong> {{ colunas|length }}</p>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h6>Demográficas:</h6>
-                                <span class="badge bg-secondary">Age</span>
-                                <span class="badge bg-secondary">Gender</span>
-                                <span class="badge bg-secondary">Country</span>
-                            </div>
-                            <div class="col-md-4">
-                                <h6>Trabalho:</h6>
-                                <span class="badge bg-info">tech_company</span>
-                                <span class="badge bg-info">remote_work</span>
-                                <span class="badge bg-info">no_employees</span>
-                            </div>
-                            <div class="col-md-4">
-                                <h6>Saúde Mental:</h6>
-                                <span class="badge bg-danger">treatment</span>
-                                <span class="badge bg-danger">work_interfere</span>
-                                <span class="badge bg-danger">family_history</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="upload-section">
+                    <h3><i class="fas fa-cloud-upload-alt"></i> Visualizar Seus Próprios Dados</h3>
+                    <p>Faça upload de qualquer arquivo CSV para visualizar os dados em formato de tabela</p>
+                    <a href="/upload" class="btn btn-upload">
+                        <i class="fas fa-file-csv"></i> Carregar Novo CSV
+                    </a>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <footer class="py-4 text-center">
-        <div class="container">
-            <p class="text-muted mb-1"><strong>Global Solution - Cloud Solutions</strong></p>
-            <p class="text-muted mb-0">FIAP 2TSC | Azure WebApp + Python | GitHub Actions CI/CD</p>
-        </div>
+    <footer class="text-center py-4" style="background: rgba(255,255,255,0.95); margin-top: 30px;">
+        <p class="text-muted mb-0">Global Solution - Cloud Solutions | FIAP 2TSC | Azure WebApp</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
