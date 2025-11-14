@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    csv_path = os.path.join('data', 'mental_health_tech_survey.csv')
+    csv_path = 'mental_health_tech_survey.csv'
     
     try:
         # Ler CSV com encoding adequado
